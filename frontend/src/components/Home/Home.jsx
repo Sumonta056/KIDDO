@@ -39,7 +39,7 @@ function Home() {
             <span>SUST</span>
           </h1>
           <h2>
-            <span>Auto-Rickshaw</span> Management <span>System</span>
+            <span>kiddo</span> Management <span>System</span>
           </h2>
 
           <div className={styles["buttons-reg"]}>
