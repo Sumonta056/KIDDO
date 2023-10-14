@@ -1,7 +1,7 @@
 
 .home {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(./Images/back.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(./Images/home.jpg);
     height: 100vh;
     -webkit-background-size: cover;
     background-size: cover;
@@ -74,7 +74,7 @@
 .welcome-text h1 span {
     text-transform: uppercase;
     color: #e0cdb4;
-    font-size: 60px;
+    font-size: 70px;
     margin-bottom: 0px;
     padding-bottom: 0px;
     font-weight: 500;
@@ -89,12 +89,12 @@
     text-align: center;
     color: #fff;
     text-transform: uppercase;
-    font-size: 45px;
+    font-size: 30px;
     font-weight: 500;
 }
 
 .welcome-text h2 span {
-    font-size: 45px;
+    font-size: 30px;
     color: #00fecb;
     font-weight: 500;
 }
