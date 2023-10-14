@@ -3,6 +3,17 @@ const mysql = require("mysql");
 const cors = require("cors");
 
 const app = express();
+
+const http  = require('http')
+const Server  = require("socket.io").Server
+const server  = http.createServer(app)
+const io = new Server(server , {
+    cors:{
+        origin:"*"
+    }
+})
+
+
 app.use(cors());
 app.use(express.json());
 
@@ -70,3 +81,21 @@ const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+io.on("connection" , (socket) => {
+  console.log('We are connected')
+
+  socket.on("chat" , chat => {
+     io.emit('chat' , chat)
+  } )
+
+  socket.on('disconnect' , ()=> {
+   console.log('disconnected')
+  })
+})
+
+
+
+server.listen(5001 , () => console.log('Listening to port 5001'))

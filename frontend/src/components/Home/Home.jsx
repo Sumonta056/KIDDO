@@ -15,16 +15,16 @@ function Home() {
               <a href="/home">Home</a>
             </li>
             <li>
+              <a href="/home">Competition</a>
+            </li>
+            <li>
+              <a href="/home">Test Yourself</a>
+            </li>
+            <li>
+              <a href="/home">Track</a>
+            </li>
+            <li>
               <a href="/home">About</a>
-            </li>
-            <li>
-              <a href="/home">Services</a>
-            </li>
-            <li>
-              <a href="/home">Search</a>
-            </li>
-            <li>
-              <a href="/home">Contact</a>
             </li>
             <li>
               <Link to="/login" className={styles["a"]}>
@@ -36,27 +36,27 @@ function Home() {
 
         <div className={styles["welcome-text"]}>
           <h1>
-            <span>SUST</span>
+            <span>KIDDO</span>
           </h1>
           <h2>
-            <span>kiddo</span> Management <span>System</span>
+            <span>👪 Parenting</span> with Purpose, <span>Advising</span> with Heart 💖
           </h2>
 
           <div className={styles["buttons-reg"]}>
             <Link to="/DriverRegistration" className={styles["a"]}>
-              Register as Driver
+              Talk With Advisior
             </Link>
-            <Link to="/OwnerRegistration" className={styles["a"]}>
-              Register as Owner
+            <Link to="/parentCommunity" className={styles["a"]}>
+              Parent Community
             </Link>
             <Link to="/AutorickshawRegistration" className={styles["a"]}>
-              Auto-Rickshaw Registration
+              Child Products
             </Link>
             <Link to="/ManagerRegistration" className={styles["a"]}>
-              Manager Registration
+              Virtual Program
             </Link>
             <Link to="/dashboard" className={styles["a"]}>
-              Dashboard
+              Child Corner
             </Link>
           </div>
         </div>
