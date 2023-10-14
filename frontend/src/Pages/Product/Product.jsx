@@ -6,14 +6,21 @@ import {
   FaFireAlt,
 } from "react-icons/fa";
 
+import { useNavigate } from "react-router-dom";
+
 export function Products(props) {
+  const navigate = useNavigate();
+
   const handleProductClick = () => {
-    // Handle the click event here, e.g., open a product details modal
-    console.log("Product clicked:", props.product_name);
-  
-    <div>
-      <h1>Product Name: {props.product_name}</h1>
-    </div>
+    // Get the product name from props or wherever it's available
+    const productName = props.product_name;
+
+    // Display an alert with the product name
+    alert("Do want to confirm purchase of " + productName + " ?");
+
+    alert("Congratulations! You successfully purchased " + productName);
+
+    navigate("/");
   };
   const starIcons = Array.from(
     { length: props.product_quality },
