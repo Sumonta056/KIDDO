@@ -4,15 +4,14 @@ const cors = require("cors");
 
 const app = express();
 
-const http  = require('http')
-const Server  = require("socket.io").Server
-const server  = http.createServer(app)
-const io = new Server(server , {
-    cors:{
-        origin:"*"
-    }
-})
-
+const http = require("http");
+const Server = require("socket.io").Server;
+const server1 = http.createServer(app);
+const io = new Server(server1, {
+  cors: {
+    origin: "*",
+  },
+});
 
 app.use(cors());
 app.use(express.json());
@@ -25,7 +24,6 @@ const db = mysql.createConnection({
 });
 
 app.post("/signup", (req, res) => {
-
   console.log("here");
   // First, check if the phone number already exists in the database
   const phoneCheckSql = "SELECT * FROM user WHERE phone = ?";
@@ -56,11 +54,11 @@ app.post("/signup", (req, res) => {
   });
 });
 
-
 app.post("/login", (req, res) => {
   const sql = "SELECT * FROM user WHERE `phone` = ? AND `password` = ?"; // Change email to phone
 
-  db.query(sql, [req.body.phone, req.body.password], (err, data) => { // Change email to phone
+  db.query(sql, [req.body.phone, req.body.password], (err, data) => {
+    // Change email to phone
 
     if (err) {
       return res.json(err);
@@ -74,28 +72,22 @@ app.post("/login", (req, res) => {
   });
 });
 
-
-
 const PORT = 3001;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
+io.on("connection", (socket) => {
+  console.log("We are connected");
 
+  socket.on("chat", (chat) => {
+    io.emit("chat", chat);
+  });
 
-io.on("connection" , (socket) => {
-  console.log('We are connected')
+  socket.on("disconnect", () => {
+    console.log("disconnected");
+  });
+});
 
-  socket.on("chat" , chat => {
-     io.emit('chat' , chat)
-  } )
-
-  socket.on('disconnect' , ()=> {
-   console.log('disconnected')
-  })
-})
-
-
-
-server.listen(5001 , () => console.log('Listening to port 5001'))
+server1.listen(5001, () => console.log("Listening to port 5001"));

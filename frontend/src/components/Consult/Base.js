@@ -1,5 +1,5 @@
 import ChatCon from "./ChatContainer"
-import styles from "./Home/Home.module.css";
+import styles from "../Home/Home.module.css";
 
 
 export default function Base(){

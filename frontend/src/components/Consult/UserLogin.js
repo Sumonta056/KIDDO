@@ -16,6 +16,8 @@ const button = {
 
 export default function UserLogin({ setUser }) {
   const [user, setAUser] = useState("");
+  const [userType, setUserType] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
 
   function handleSetUser() {
     if (!user) return;
@@ -37,11 +39,54 @@ export default function UserLogin({ setUser }) {
         height: "100vh",
       }}
     >
-      <h1 style={{ margin: 10, textAlign: "center" ,color: "white" }}>
+      <h1 style={{ margin: 10, textAlign: "center", color: "white" }}>
         <CommentOutlined style={{ fontSize: 30, color: "white" }} /> Parent
         Community
       </h1>
 
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <input
+          type="date" // Date input
+          style={{
+            margin: 10,
+            height: 50,
+            width: "30%",
+            borderRadius: 10,
+            borderWidth: 1,
+            fontSize: 15,
+            padding: 20,
+          }}
+          value={selectedDate}
+          onChange={(e) => setSelectedDate(e.target.value)}
+        />
+        <select
+          style={{
+            margin: 10,
+            height: 50,
+            width: "30%",
+            borderRadius: 10,
+            borderWidth: 1,
+            fontSize: 15,
+            padding: 5,
+          }}
+          value={userType}
+          onChange={(e) => setUserType(e.target.value)}
+        >
+          <option value="Parent">Pediatrician</option>
+          <option value="Teacher">Child Psychologist</option>
+          <option value="Student">Parenting Coach</option>
+          <option value="Other">Nutritionist</option>
+          <option value="Other">Child Development Specialist</option>
+        </select>
+      </div>
       <div
         style={{
           width: "100%",
@@ -66,7 +111,7 @@ export default function UserLogin({ setUser }) {
           placeholder="Write Your Name"
         ></input>
         <button onClick={() => handleSetUser()} style={button}>
-          Start
+          Book
         </button>
       </div>
     </div>

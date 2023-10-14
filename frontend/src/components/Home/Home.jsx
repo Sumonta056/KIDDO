@@ -43,7 +43,7 @@ function Home() {
           </h2>
 
           <div className={styles["buttons-reg"]}>
-            <Link to="/DriverRegistration" className={styles["a"]}>
+            <Link to="/consult" className={styles["a"]}>
               Talk With Advisior
             </Link>
             <Link to="/parentCommunity" className={styles["a"]}>
