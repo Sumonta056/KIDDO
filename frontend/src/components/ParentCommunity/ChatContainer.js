@@ -95,7 +95,8 @@ export default function ChatContainer() {
           >
             <h4
               style={{
-                backgroundColor: "#EFB495",
+                width: "200%",
+                backgroundColor: "#F4DFB6",
                 marginTop: 30,
                 marginBottom: 40,
                 marginRight: 20,
@@ -103,7 +104,7 @@ export default function ChatContainer() {
                 padding: 15,
                 fontSize: 15,
                 fontWeight: 500,
-                borderRadius: 20,
+                borderRadius: 5,
               }}
             >
               Username: {user}
@@ -112,7 +113,8 @@ export default function ChatContainer() {
             <p
               onClick={() => logout()}
               style={{
-                backgroundColor: "#EFB495",
+                width: "100%",
+                backgroundColor: "#F4DFB6",
                 cursor: "pointer",
                 marginTop: 30,
                 marginBottom: 40,
@@ -120,7 +122,7 @@ export default function ChatContainer() {
                 padding: 15,
                 fontSize: 15,
                 fontWeight: 500,
-                borderRadius: 20,
+                borderRadius: 5,
               }}
             >
               Log Out
@@ -129,7 +131,8 @@ export default function ChatContainer() {
             <p
               onClick={() => Home()}
               style={{
-                backgroundColor: "#EFB495",
+                width: "100%",
+                backgroundColor: "#F4DFB6",
                 cursor: "pointer",
                 marginTop: 30,
                 marginBottom: 40,
@@ -137,7 +140,7 @@ export default function ChatContainer() {
                 padding: 15,
                 fontSize: 15,
                 fontWeight: 500,
-                borderRadius: 20,
+                borderRadius: 5,
               }}
             >
               Exit

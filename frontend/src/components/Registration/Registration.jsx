@@ -120,19 +120,10 @@ function Registration() {
               className={`${styles["overlay-panel"]} ${styles["overlay-right"]}`}
             >
               <div className={styles["background-image"]} />
-              <h1>শাবিপ্রবি অটোরিকশা ম্যানেজমেন্ট সিস্টেম</h1>
             </div>
           </div>
         </div>
       </div>
-      <footer>
-        <mark>
-          Learn more on{" "}
-          <a href="https://github.com/Sumonta056/SUST-Autorickshaw-Management-System">
-            Github
-          </a>
-        </mark>
-      </footer>
     </div>
   );
 }

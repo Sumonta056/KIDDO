@@ -3,6 +3,7 @@ import socketIOClient from "socket.io-client";
 import ChatBoxReciever, { ChatBoxSender } from "./ChatBox";
 import InputText from "./InputText";
 import UserLogin from "./UserLogin";
+import { useNavigate } from "react-router-dom";
 
 export default function ChatContainer() {
   let socketio = socketIOClient("http://localhost:5001");
@@ -13,7 +14,7 @@ export default function ChatContainer() {
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-
+  const navigate = useNavigate();
   useEffect(() => {
     scrollToBottom();
   }, [chats]);
@@ -32,6 +33,9 @@ export default function ChatContainer() {
     const newChat = { ...chat, user: localStorage.getItem("user"), avatar };
     setChats([...chats, newChat]);
     sendChatToSocket([...chats, newChat]);
+  }
+  function Home() {
+    navigate("/");
   }
 
   function logout() {
@@ -88,7 +92,8 @@ export default function ChatContainer() {
           >
             <h4
               style={{
-                backgroundColor: "#EFB495",
+                width: "200%",
+                backgroundColor: "#F4DFB6",
                 marginTop: 30,
                 marginBottom: 40,
                 marginRight: 20,
@@ -96,7 +101,7 @@ export default function ChatContainer() {
                 padding: 15,
                 fontSize: 15,
                 fontWeight: 500,
-                borderRadius: 20,
+                borderRadius: 5,
               }}
             >
               Username: {user}
@@ -105,7 +110,8 @@ export default function ChatContainer() {
             <p
               onClick={() => logout()}
               style={{
-                backgroundColor: "#EFB495",
+                width: "100%",
+                backgroundColor: "#F4DFB6",
                 cursor: "pointer",
                 marginTop: 30,
                 marginBottom: 40,
@@ -113,10 +119,28 @@ export default function ChatContainer() {
                 padding: 15,
                 fontSize: 15,
                 fontWeight: 500,
-                borderRadius: 20,
+                borderRadius: 5,
               }}
             >
               Log Out
+            </p>
+
+            <p
+              onClick={() => Home()}
+              style={{
+                width: "100%",
+                backgroundColor: "#F4DFB6",
+                cursor: "pointer",
+                marginTop: 30,
+                marginBottom: 40,
+                marginRight: 20,
+                padding: 15,
+                fontSize: 15,
+                fontWeight: 500,
+                borderRadius: 5,
+              }}
+            >
+              Exit
             </p>
           </div>
           <ChatsList />

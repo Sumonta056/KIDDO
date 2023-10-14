@@ -44,7 +44,7 @@ function Home() {
 
           <div className={styles["buttons-reg"]}>
             <Link to="/consults" className={styles["a"]}>
-              Talk With Advisior
+              Talk With Advisor
             </Link>
             <Link to="/parentCommunity" className={styles["a"]}>
               Parent Community
