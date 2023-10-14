@@ -1,0 +1,41 @@
+/* Books.module.css */
+
+.bookList {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  
+  .book {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin: 30px;
+    width: 300px;
+    height: 200px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    color: white;
+  
+    /* Add a hover effect to lift the book card slightly */
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .downloadButton,
+  .readOnlineButton {
+    background-color: #0074d9;
+    color: #fff;
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .downloadButton:hover,
+  .readOnlineButton:hover {
+    background-color: #0056b3;
+  }
+  

@@ -71,6 +71,41 @@ app.post("/login", (req, res) => {
     }
   });
 });
+// Route to fetch all books
+app.get("/api/books", (req, res) => {
+  const query = "SELECT * FROM books";
+
+  db.query(query, (err, result) => {
+    if (err) {
+      console.error("Error fetching books data from MySQL:", err);
+      res.json({ error: "Internal Server Error" });
+    } else {
+      res.json({ books: result });
+    }
+  });
+});
+
+// Route to fetch book data by book_id
+app.get("/api/books/:id", (req, res) => {
+  const { id } = req.params;
+
+  const query = "SELECT * FROM books WHERE book_id = ?";
+
+  db.query(query, [id], (err, result) => {
+    if (err) {
+      console.error("Error fetching book data from MySQL:", err);
+      res.json({ error: "Internal Server Error" });
+    } else {
+      if (result.length === 0) {
+        res.json({ error: "Book not found" });
+      } else {
+        const bookData = result[0];
+        res.json(bookData);
+      }
+    }
+  });
+});
+
 
 const PORT = 3001;
 

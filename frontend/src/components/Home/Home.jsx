@@ -43,7 +43,7 @@ function Home() {
           </h2>
 
           <div className={styles["buttons-reg"]}>
-            <Link to="/consult" className={styles["a"]}>
+            <Link to="/consults" className={styles["a"]}>
               Talk With Advisior
             </Link>
             <Link to="/parentCommunity" className={styles["a"]}>
@@ -52,11 +52,14 @@ function Home() {
             <Link to="/AutorickshawRegistration" className={styles["a"]}>
               Child Products
             </Link>
-            <Link to="/ManagerRegistration" className={styles["a"]}>
+            <Link to="/Video" className={styles["a"]}>
               Virtual Program
             </Link>
             <Link to="/dashboard" className={styles["a"]}>
               Child Corner
+            </Link>
+            <Link to="/Books" className={styles["a"]}>
+              E-books
             </Link>
           </div>
         </div>
