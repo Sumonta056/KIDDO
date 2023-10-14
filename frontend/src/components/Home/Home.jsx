@@ -18,7 +18,7 @@ function Home() {
               <a href="/home">Competition</a>
             </li>
             <li>
-              <a href="/home">Test Yourself</a>
+              <a href="/test">Test Yourself</a>
             </li>
             <li>
               <a href="/home">Track</a>
