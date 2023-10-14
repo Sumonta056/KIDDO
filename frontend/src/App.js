@@ -7,8 +7,10 @@ import Test from "./components/Testify/Quiz";
 import Consult from "./components/Consult/Base";
 import Consult1 from "./components/Consult/Base1";
 import Book from "./components/Books/BookList";
-import Video from "./components/Video calling/Video";
+import Video from "./components/Video calling/VideoConference";
 import ConsultHome from "./components/Consult/Home"
+import Product from "./Pages/Product/App.js";
+import PR from "./components/ProductRegistration/ProductRegistration"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -26,6 +28,8 @@ function App() {
         <Route path="/Books" element={<Book />} />
         <Route path="/Video" element={<Video />} />
         <Route path="/consults" element={<ConsultHome />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/productRe" element={<PR />} />
       </Routes>
     </BrowserRouter>
   );

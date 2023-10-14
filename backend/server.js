@@ -106,7 +106,83 @@ app.get("/api/books/:id", (req, res) => {
   });
 });
 
+// Getting Product Database
+app.get("/api/products", async (req, res) => {
+  // Execute the query
+  db.query("SELECT * FROM product", (queryErr, rows) => {
+    if (queryErr) {
+      console.error("Error fetching customer data: ", queryErr);
+      return res.json({ error: "Internal server error" });
+    }
 
+    res.json(rows);
+
+  });
+});
+
+// Route to fetch product data by product_nid
+app.get("/api/products/:id", (req, res) => {
+  const { id } = req.params;
+
+  const query = "SELECT * FROM product WHERE product_id = ?";
+
+  db.query(query, [id], (err, result) => {
+    if (err) {
+      console.error("Error fetching product data from MySQL:", err);
+      res.json({ error: "Internal Server Error" });
+    } else {
+      if (result.length === 0) {
+        res.json({ error: "Product not found" });
+      } else {
+        const productData = result[0]; // Assuming product_nid is unique
+        res.json(productData);
+      }
+    }
+  });
+});
+app.post("/ProductRegistration", (req, res) => {
+
+  console.log("here");
+  // Check if the product's NID already exists in the product table
+  const nidCheckSql = "SELECT * FROM product WHERE product_id = ?";
+  const nidToCheck = req.body.product_id;
+
+  // Check for existing NID in the product table
+  db.query(nidCheckSql, [nidToCheck], (nidCheckErr, nidCheckData) => {
+    if (nidCheckErr) {
+      return res.json(nidCheckErr); // Return an error response if there's a database error
+    }
+
+    // If there is a product with the same NID, return a message
+    if (nidCheckData.length > 0) {
+      console.log("Product with the same ID already exists");
+      return res.json("id_exists");
+    }
+
+    // If the NID is not found in the product table, proceed with product registration
+    const productSql =
+      "INSERT INTO product (product_name, product_description, product_quality, product_type, product_price, product_image) VALUES (?, ?, ?, ?, ?, ?)";
+    const productValues = [
+      req.body.product_name,
+      req.body.product_description,
+      req.body.product_quality,
+      req.body.product_type,
+      req.body.product_price,
+      req.body.product_image,
+    ];
+
+    // Insert product data into the product table
+    db.query(productSql, productValues, (productErr, productData) => {
+      if (productErr) {
+        console.error(productErr); // Log the error to the console
+        return res.json(productErr); // Return an error response
+      }
+      
+      console.log(productValues);
+      return res.json("product_registration_success");
+    });
+  });
+});
 const PORT = 3001;
 
 app.listen(PORT, () => {

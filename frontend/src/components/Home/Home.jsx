@@ -49,7 +49,7 @@ function Home() {
             <Link to="/parentCommunity" className={styles["a"]}>
               Parent Community
             </Link>
-            <Link to="/AutorickshawRegistration" className={styles["a"]}>
+          <Link to="/product" className={styles["a"]}>
               Child Products
             </Link>
             <Link to="/Video" className={styles["a"]}>

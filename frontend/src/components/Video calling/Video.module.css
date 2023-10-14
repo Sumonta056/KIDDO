@@ -22,20 +22,20 @@ nav {
   padding: 120px 0;
 }
 
-nav .logo {
+.header nav .logo {
   width: 56px;
   display: block;
   margin: auto;
   cursor: pointer;
 }
 
-nav ul {
+.header nav ul {
   margin-top: 160px;
 }
-nav ul li {
+.header nav ul li {
   list-style: none;
 }
-nav ul li img {
+.header nav ul li img {
   width: 50px;
   display: block;
   margin: 10px auto;
@@ -45,7 +45,7 @@ nav ul li img {
   transition: opacity 0.5s, background 0.5s;
 }
 
-nav ul li img:hover {
+.header nav ul li img:hover {
   opacity: 1;
   background: #4d6181;
 }
