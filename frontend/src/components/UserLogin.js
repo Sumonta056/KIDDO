@@ -37,8 +37,8 @@ export default function UserLogin({ setUser }) {
         height: "100vh",
       }}
     >
-      <h1 style={{ margin: 10, textAlign: "center" }}>
-        <CommentOutlined style={{ fontSize: 30, color: "green" }} /> Parent
+      <h1 style={{ margin: 10, textAlign: "center" ,color: "white" }}>
+        <CommentOutlined style={{ fontSize: 30, color: "white" }} /> Parent
         Community
       </h1>
 
@@ -60,7 +60,6 @@ export default function UserLogin({ setUser }) {
             borderWidth: 10,
             fontSize: 15,
             padding: 25,
-            paddingInline: 5,
           }}
           value={user}
           onChange={(e) => setAUser(e.target.value)}

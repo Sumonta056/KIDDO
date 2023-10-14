@@ -42,7 +42,14 @@ export default function ChatContainer() {
 
   function ChatsList() {
     return (
-      <div style={{ height: "75vh", overflow: "scroll", overflowX: "hidden" }}>
+      <div
+        style={{
+          height: "70vh",
+          overflowX: "hidden",
+          marginLeft: 100,
+          marginRight: 100,
+        }}
+      >
         {chats.map((chat, index) => {
           if (chat.user === user)
             return (
@@ -76,31 +83,54 @@ export default function ChatContainer() {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
-            <h4>Username: {user}</h4>
-            <strong>
-              Remember to Subscribe to{" "}
-              <a href="https://www.youtube.com/channel/UCmoQtgmJ2SHEAPCAR1Q8TBA">
-                {" "}
-                My Channel
-              </a>
-            </strong>
+            <h4
+              style={{
+                backgroundColor: "#EFB495",
+                marginTop: 30,
+                marginBottom: 40,
+                marginRight: 20,
+                marginLeft: 20,
+                padding: 15,
+                fontSize: 15,
+                fontWeight: 500,
+                borderRadius: 20,
+              }}
+            >
+              Username: {user}
+            </h4>
+
             <p
               onClick={() => logout()}
-              style={{ color: "blue", cursor: "pointer" }}
+              style={{
+                backgroundColor: "#EFB495",
+                cursor: "pointer",
+                marginTop: 30,
+                marginBottom: 40,
+                marginRight: 20,
+                padding: 15,
+                fontSize: 15,
+                fontWeight: 500,
+                borderRadius: 20,
+              }}
             >
               Log Out
             </p>
           </div>
           <ChatsList />
 
-          <InputText addMessage={addMessage} />
+          <InputText
+            style={{
+              padding: 10,
+            }}
+            addMessage={addMessage}
+          />
         </div>
       ) : (
         <UserLogin setUser={setUser} />
       )}
-
     </div>
   );
 }
